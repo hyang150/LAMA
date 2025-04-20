@@ -61,44 +61,45 @@ fi
 
 
 echo 'cased models'
-echo 'Transformer XL'
-if [[ ! -f 'transformerxl/transfo-xl-wt103/config.json' ]]; then
-  rm -rf 'transformerxl/transfo-xl-wt103'
-  mkdir -p 'transformerxl/transfo-xl-wt103'
-  cd 'transformerxl/transfo-xl-wt103'
-  wget -c 'https://s3.amazonaws.com/models.huggingface.co/bert/transfo-xl-wt103-vocab.bin' -O 'vocab.bin'
+
+#echo 'Transformer XL'
+#if [[ ! -f 'transformerxl/transfo-xl-wt103/config.json' ]]; then
+#  rm -rf 'transformerxl/transfo-xl-wt103'
+##  mkdir -p 'transformerxl/transfo-xl-wt103'
+#  cd 'transformerxl/transfo-xl-wt103'
+#  wget -c 'https://s3.amazonaws.com/models.huggingface.co/bert/transfo-xl-wt103-vocab.bin' -O 'vocab.bin'
   # Extracting plain text vocab for debugging purposes.
-  python -c 'import torch; print(*torch.load("vocab.bin")["sym2idx"].keys(), sep="\n")' | sort > vocab.txt
-  wget -c 'https://s3.amazonaws.com/models.huggingface.co/bert/transfo-xl-wt103-pytorch_model.bin' -O 'pytorch_model.bin'
-  wget -c 'https://s3.amazonaws.com/models.huggingface.co/bert/transfo-xl-wt103-config.json' -O 'config.json'
-  cd ../../
-fi
+#  python -c 'import torch; print(*torch.load("vocab.bin")["sym2idx"].keys(), sep="\n")' | sort > vocab.txt
+#  wget -c 'https://s3.amazonaws.com/models.huggingface.co/bert/transfo-xl-wt103-pytorch_model.bin' -O 'pytorch_model.bin'
+#  wget -c 'https://s3.amazonaws.com/models.huggingface.co/bert/transfo-xl-wt103-config.json' -O 'config.json'
+#  cd ../../
+#fi
 
-echo "ELMO ORIGINAL 5.5B"
-if [[ ! -f elmo/original5.5B/vocab-enwiki-news-500000.txt ]]; then
-  mkdir -p 'elmo'
-  cd elmo
-  mkdir -p 'original5.5B'
-  cd original5.5B
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/elmo_2x4096_512_2048cnn_2xhighway_5.5B_weights.hdf5"
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/elmo_2x4096_512_2048cnn_2xhighway_5.5B_options.json"
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/elmo_2x4096_512_2048cnn_2xhighway_5.5B_softmax_weights.hdf5"
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/tf_checkpoint/vocab-enwiki-news-500000.txt"
-  cd ../../
-fi
+#echo "ELMO ORIGINAL 5.5B"
+#if [[ ! -f elmo/original5.5B/vocab-enwiki-news-500000.txt ]]; then
+#  mkdir -p 'elmo'
+#  cd elmo
+#  mkdir -p 'original5.5B'
+#  cd original5.5B
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/elmo_2x4096_512_2048cnn_2xhighway_5.5B_weights.hdf5"
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/elmo_2x4096_512_2048cnn_2xhighway_5.5B_options.json"
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/elmo_2x4096_512_2048cnn_2xhighway_5.5B_softmax_weights.hdf5"
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway_5.5B/tf_checkpoint/vocab-enwiki-news-500000.txt"
+#  cd ../../
+#fi
 
-echo "ELMO ORIGINAL"
-if [[ ! -f elmo/original/vocab-2016-09-10.txt ]]; then
-  mkdir -p 'elmo'
-  cd elmo
-  mkdir -p 'original'
-  cd original
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5"
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json"
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_softmax_weights.hdf5"
-  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/vocab-2016-09-10.txt"
-  cd ../../
-fi
+#echo "ELMO ORIGINAL"
+#if [[ ! -f elmo/original/vocab-2016-09-10.txt ]]; then
+#  mkdir -p 'elmo'
+#  cd elmo
+#  mkdir -p 'original'
+#  cd original
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5"
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_options.json"
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/2x4096_512_2048cnn_2xhighway/elmo_2x4096_512_2048cnn_2xhighway_softmax_weights.hdf5"
+#  wget -c "https://s3-us-west-2.amazonaws.com/allennlp/models/elmo/vocab-2016-09-10.txt"
+#  cd ../../
+#fi
 
 
 echo "BERT BASE CASED"

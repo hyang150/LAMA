@@ -17,45 +17,51 @@ from shutil import copyfile
 from collections import defaultdict
 
 LMs = [
+    # {
+    #     "lm": "transformerxl",
+    #     "label": "transformerxl",
+    #     "models_names": ["transformerxl"],
+    #     "transformerxl_model_name": "transfo-xl-wt103",
+    #     "transformerxl_model_dir": "pre-trained_language_models/transformerxl/transfo-xl-wt103/",
+    # },
+    # {
+    #     "lm": "elmo",
+    #     "label": "elmo",
+    #     "models_names": ["elmo"],
+    #     "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway",
+    #     "elmo_vocab_name": "vocab-2016-09-10.txt",
+    #     "elmo_model_dir": "pre-trained_language_models/elmo/original",
+    #     "elmo_warm_up_cycles": 10,
+    # },
+    # {
+    #     "lm": "elmo",
+    #     "label": "elmo5B",
+    #     "models_names": ["elmo"],
+    #     "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway_5.5B",
+    #     "elmo_vocab_name": "vocab-enwiki-news-500000.txt",
+    #     "elmo_model_dir": "pre-trained_language_models/elmo/original5.5B/",
+    #     "elmo_warm_up_cycles": 10,
+    # },
+    # {
+    #     "lm": "bert",
+    #     "label": "bert_base",
+    #     "models_names": ["bert"],
+    #     "bert_model_name": "bert-base-cased",
+    #     "bert_model_dir": "pre-trained_language_models/bert/cased_L-12_H-768_A-12",
+    # },
+    # {
+    #     "lm": "bert",
+    #     "label": "bert_large",
+    #     "models_names": ["bert"],
+    #     "bert_model_name": "bert-large-cased",
+    #     "bert_model_dir": "pre-trained_language_models/bert/cased_L-24_H-1024_A-16",
+    # },
     {
-        "lm": "transformerxl",
-        "label": "transformerxl",
-        "models_names": ["transformerxl"],
-        "transformerxl_model_name": "transfo-xl-wt103",
-        "transformerxl_model_dir": "pre-trained_language_models/transformerxl/transfo-xl-wt103/",
-    },
-    {
-        "lm": "elmo",
-        "label": "elmo",
-        "models_names": ["elmo"],
-        "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway",
-        "elmo_vocab_name": "vocab-2016-09-10.txt",
-        "elmo_model_dir": "pre-trained_language_models/elmo/original",
-        "elmo_warm_up_cycles": 10,
-    },
-    {
-        "lm": "elmo",
-        "label": "elmo5B",
-        "models_names": ["elmo"],
-        "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway_5.5B",
-        "elmo_vocab_name": "vocab-enwiki-news-500000.txt",
-        "elmo_model_dir": "pre-trained_language_models/elmo/original5.5B/",
-        "elmo_warm_up_cycles": 10,
-    },
-    {
-        "lm": "bert",
-        "label": "bert_base",
-        "models_names": ["bert"],
-        "bert_model_name": "bert-base-cased",
-        "bert_model_dir": "pre-trained_language_models/bert/cased_L-12_H-768_A-12",
-    },
-    {
-        "lm": "bert",
-        "label": "bert_large",
-        "models_names": ["bert"],
-        "bert_model_name": "bert-large-cased",
-        "bert_model_dir": "pre-trained_language_models/bert/cased_L-24_H-1024_A-16",
-    },
+    # "LLaMA 3.1 8B CASED"
+    "lm": "llama",
+    "llama_model_dir": "pre-trained_language_models/llama/3.1-8B/",
+    "llama_model_name": "meta-llama/Llama-3.1-8b"
+    }
 ]
 
 
@@ -90,13 +96,13 @@ def run_experiments(
             "common_vocab_filename": "pre-trained_language_models/common_vocab_cased.txt",
             "template": "",
             "bert_vocab_name": "vocab.txt",
-            "batch_size": 32,
+            "batch_size": 128,
             "logdir": "output",
             "full_logdir": "output/results/{}/{}".format(
                 input_param["label"], relation["relation"]
             ),
             "lowercase": False,
-            "max_sentence_length": 100,
+            "max_sentence_length": 256,
             "threads": -1,
             "interactive": False,
             "use_negated_probes": use_negated_probes,
