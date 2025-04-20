@@ -1,5 +1,5 @@
 # llama_connector.py
-#  Connector for HuggingFace LLaMA models (e.g., Llama-3.1-8b)
+# Connector for HuggingFace LLaMA models (e.g., Llama-3.1-8b)
 from transformers import LlamaForCausalLM, LlamaTokenizer
 import torch
 import numpy as np
@@ -12,9 +12,9 @@ class Llama(Base_Connector):
         model_source = args.llama_model_dir or args.llama_model_name
         print(f"loading LLaMA model from {model_source}")
 
-        # Load tokenizer and model
-        self.tokenizer = LlamaTokenizer.from_pretrained(model_source)
-        self.model = LlamaForCausalLM.from_pretrained(model_source).eval()
+        # Load tokenizer and model (use local files only)
+        self.tokenizer = LlamaTokenizer.from_pretrained(model_source, local_files_only=True)
+        self.model = LlamaForCausalLM.from_pretrained(model_source, local_files_only=True).eval()
 
         # Set device and move model
         self._model_device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
