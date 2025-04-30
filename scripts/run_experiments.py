@@ -57,11 +57,10 @@ LMs = [
     #     "bert_model_dir": "pre-trained_language_models/bert/cased_L-24_H-1024_A-16",
     # },
     {
-        "lm": "llama",
-        "label": "llama_3.1_8b",           # ← add this
-        "models_names": ["llama"],        # ← and this
-        "llama_model_dir": "pre-trained_language_models/llama/3.1-8B/",
-        "llama_model_name": "meta-llama/Llama-3.1-8b"
+        "lm": "gptj",
+        "label": "gptj-6B",
+        "models_names": ["gptj"],
+        "gptj_model_name": "EleutherAI/gpt-j-6B",
     }
 ]
 
@@ -216,17 +215,17 @@ def run_all_LMs(parameters):
 
 if __name__ == "__main__":
 
-    print("1. Google-RE")
-    parameters = get_GoogleRE_parameters()
-    run_all_LMs(parameters)
+    # print("1. Google-RE")
+    # parameters = get_GoogleRE_parameters()
+    # run_all_LMs(parameters)
 
-    print("2. T-REx")
-    parameters = get_TREx_parameters()
-    run_all_LMs(parameters)
+    # print("2. T-REx")
+    # parameters = get_TREx_parameters()
+    # run_all_LMs(parameters)
 
-    print("3. ConceptNet")
-    parameters = get_ConceptNet_parameters()
-    run_all_LMs(parameters)
+    # print("3. ConceptNet")
+    # parameters = get_ConceptNet_parameters()
+    # run_all_LMs(parameters)
 
     print("4. SQuAD")
     parameters = get_Squad_parameters()
