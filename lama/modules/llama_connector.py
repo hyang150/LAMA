@@ -1,28 +1,45 @@
 # llama_connector.py
 # Connector for HuggingFace LLaMA models (e.g., Llama-3.1-8b)
-from transformers import LlamaForCausalLM, LlamaTokenizer
+import os
 import torch
 import numpy as np
+from transformers import LlamaForCausalLM, LlamaTokenizer
 from lama.modules.base_connector import Base_Connector, OPENAI_EOS
 
 class Llama(Base_Connector):
     def __init__(self, args):
         super().__init__()
-        # Determine source: local dir or HF repo
-        model_source = args.llama_model_dir or args.llama_model_name
-        print(f"loading LLaMA model from {model_source}")
+        # 优先使用本地目录，否则回退到远端 HF Hub
+        local_dir = args.llama_model_dir
+        hf_name = args.llama_model_name
+        if local_dir and os.path.isdir(local_dir):
+            model_source = local_dir
+            from_pretrained_kwargs = {"local_files_only": True}
+            print(f"Loading LLaMA from local path: {model_source}")
+        else:
+            model_source = hf_name
+            from_pretrained_kwargs = {"local_files_only": False}
+            print(f"Downloading LLaMA from HF Hub: {model_source}")
 
-        # Load tokenizer and model (use local files only)
-        self.tokenizer = LlamaTokenizer.from_pretrained(model_source, local_files_only=True)
-        self.model = LlamaForCausalLM.from_pretrained(model_source, local_files_only=True).eval()
+        # Load tokenizer and model
+        self.tokenizer = LlamaTokenizer.from_pretrained(
+            model_source,
+            **from_pretrained_kwargs
+        )
+        self.model = LlamaForCausalLM.from_pretrained(
+            model_source,
+            **from_pretrained_kwargs
+        ).eval()
 
         # Set device and move model
         self._model_device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self._model_device)
 
         # Build vocab and inverse vocab
-        self.vocab = [self.tokenizer.convert_ids_to_tokens(i)
-                      for i in range(self.tokenizer.vocab_size)]
+        self.vocab = [
+            self.tokenizer.convert_ids_to_tokens(i)
+            for i in range(self.tokenizer.vocab_size)
+        ]
         self._init_inverse_vocab()
 
         # Special tokens

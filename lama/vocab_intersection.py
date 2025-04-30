@@ -21,27 +21,27 @@ CASED_MODELS = [
   #   "cpu": True,
   #   "output_dictionary_size": -1
   # },
-  {
-    # "TransformerXL"
-    "lm": "transformerxl",
-    "transformerxl_model_dir": "pre-trained_language_models/transformerxl/transfo-xl-wt103/",
-  },
-  {
-    # "ELMO ORIGINAL"
-    "lm": "elmo",
-    "elmo_model_dir": "pre-trained_language_models/elmo/original",
-    "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway",
-    "elmo_vocab_name": "vocab-2016-09-10.txt",
-    "elmo_warm_up_cycles": 5
-  },
-  {
-    # "ELMO ORIGINAL 5.5B"
-    "lm": "elmo",
-    "elmo_model_dir": "pre-trained_language_models/elmo/original5.5B/",
-    "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway_5.5B",
-    "elmo_vocab_name": "vocab-enwiki-news-500000.txt",
-    "elmo_warm_up_cycles": 5
-  },
+  # {
+  #   # "TransformerXL"
+  #   "lm": "transformerxl",
+  #   "transformerxl_model_dir": "pre-trained_language_models/transformerxl/transfo-xl-wt103/",
+  # },
+  # {
+  #   # "ELMO ORIGINAL"
+  #   "lm": "elmo",
+  #   "elmo_model_dir": "pre-trained_language_models/elmo/original",
+  #   "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway",
+  #   "elmo_vocab_name": "vocab-2016-09-10.txt",
+  #   "elmo_warm_up_cycles": 5
+  # },
+  # {
+  #   # "ELMO ORIGINAL 5.5B"
+  #   "lm": "elmo",
+  #   "elmo_model_dir": "pre-trained_language_models/elmo/original5.5B/",
+  #   "elmo_model_name": "elmo_2x4096_512_2048cnn_2xhighway_5.5B",
+  #   "elmo_vocab_name": "vocab-enwiki-news-500000.txt",
+  #   "elmo_warm_up_cycles": 5
+  # },
   {
     # "BERT BASE CASED"
     "lm": "bert",

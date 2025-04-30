@@ -1,0 +1,113 @@
+Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.
+Loading GPT-J model…
+305 samples loaded from data/Squad/test.jsonl
+
+Moving model to CUDA
+—— Sample 1/305 ——
+ Question:  Answer: [MASK].
+
+| Top10 predictions
+--------------------------------------------------
+rank    token               log_prob    
+--------------------------------------------------
+1       Ċ                   -0.830      
+2                           -1.291      
+3       ##ĊĊ                -2.330      
+4       č                   -4.798      
+5       The                 -4.892      
+6       (                   -5.080      
+7       I                   -5.220      
+8       If                  -5.634      
+9       Yes                 -5.775      
+10      No                  -5.837      
+
+
+
+—— Sample 2/305 ——
+ Question:  Answer: [MASK].
+
+| Top10 predictions
+--------------------------------------------------
+rank    token               log_prob    
+--------------------------------------------------
+1       Ċ                   -0.830      
+2                           -1.291      
+3       ##ĊĊ                -2.330      
+4       č                   -4.798      
+5       The                 -4.892      
+6       (                   -5.080      
+7       I                   -5.220      
+8       If                  -5.634      
+9       Yes                 -5.775      
+10      No                  -5.837      
+
+
+
+—— Sample 3/305 ——
+ Question:  Answer: [MASK].
+
+| Top10 predictions
+--------------------------------------------------
+rank    token               log_prob    
+--------------------------------------------------
+1       Ċ                   -0.830      
+2                           -1.291      
+3       ##ĊĊ                -2.330      
+4       č                   -4.798      
+5       The                 -4.892      
+6       (                   -5.080      
+7       I                   -5.220      
+8       If                  -5.634      
+9       Yes                 -5.775      
+10      No                  -5.837      
+
+
+
+—— Sample 4/305 ——
+ Question:  Answer: [MASK].
+
+| Top10 predictions
+--------------------------------------------------
+rank    token               log_prob    
+--------------------------------------------------
+1       Ċ                   -0.830      
+2                           -1.291      
+3       ##ĊĊ                -2.330      
+4       č                   -4.798      
+5       The                 -4.892      
+6       (                   -5.080      
+7       I                   -5.220      
+8       If                  -5.634      
+9       Yes                 -5.775      
+10      No                  -5.837      
+
+
+
+—— Sample 5/305 ——
+ Question:  Answer: [MASK].
+
+| Top10 predictions
+--------------------------------------------------
+rank    token               log_prob    
+--------------------------------------------------
+1       Ċ                   -0.830      
+2                           -1.291      
+3       ##ĊĊ                -2.330      
+4       č                   -4.798      
+5       The                 -4.892      
+6       (                   -5.080      
+7       I                   -5.220      
+8       If                  -5.634      
+9       Yes                 -5.775      
+10      No                  -5.837      
+
+
+
+[50/305] so far Precision@1 = 0.0000
+[100/305] so far Precision@1 = 0.0000
+[150/305] so far Precision@1 = 0.0000
+[200/305] so far Precision@1 = 0.0000
+[250/305] so far Precision@1 = 0.0000
+[300/305] so far Precision@1 = 0.0000
+
+==== Final Precision@1 over 305 samples: 0.0000 ====

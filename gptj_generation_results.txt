@@ -1,0 +1,972 @@
+=== Sample 1 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 2 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 3 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 4 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 5 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 6 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 7 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 8 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 9 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 10 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 11 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 12 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 13 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 14 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 15 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 16 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 17 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 18 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 19 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 20 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 21 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 22 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 23 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 24 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 25 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 26 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 27 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 28 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 29 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 30 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 31 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 32 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 33 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 34 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 35 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 36 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 37 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 38 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 39 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 40 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 41 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 42 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 43 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 44 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 45 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 46 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 47 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 48 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 49 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 50 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 51 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 52 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 53 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
+=== Sample 54 ===
+Prompt:
+Passage: 
+Question: 
+Answer:
+GPT-J Answer: A:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The answer is:
+
+The
+Label (gold): 
+
