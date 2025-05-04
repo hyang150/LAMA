@@ -123,7 +123,36 @@ class Base_Connector():
         return new_log_probs
 
     def get_id(self, string):
-        raise NotImplementedError()
+        """Get token IDs for a string, handling out-of-vocabulary words."""
+        if not string:
+            return None
+            
+        # First try direct lookup
+        if string in self.inverse_vocab:
+            return [self.inverse_vocab[string]]
+            
+        # Try lowercase version
+        if string.lower() in self.inverse_vocab:
+            return [self.inverse_vocab[string.lower()]]
+            
+        # Try splitting into words
+        words = string.split()
+        if len(words) > 1:
+            ids = []
+            for word in words:
+                if word in self.inverse_vocab:
+                    ids.append(self.inverse_vocab[word])
+                elif word.lower() in self.inverse_vocab:
+                    ids.append(self.inverse_vocab[word.lower()])
+            if ids:
+                return ids
+                
+        # If all else fails, try to find the closest match
+        for word in self.vocab:
+            if word.lower() == string.lower():
+                return [self.inverse_vocab[word]]
+                
+        return None
 
     def get_generation(self, sentences, logger=None):
         [log_probs], [token_ids], [masked_indices] = self.get_batch_generation(

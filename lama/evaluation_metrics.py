@@ -4,6 +4,7 @@ import torch
 import numpy as np
 import scipy
 import scipy.stats
+from collections import Counter
 
 def __max_probs_values_indices(masked_indices, log_probs, topk=1000):
     """
@@ -89,13 +90,45 @@ def __print_top_k(value_max_probs, index_max_probs, vocab, mask_topk, index_list
     return result, msg
 
 
-def get_ranking(log_probs, masked_indices, vocab, label_index=None,
-                index_list=None, topk=1000, P_AT=10, print_generation=True):
+def get_ranking(log_probs, masked_indices, vocab, label_index, index_list, print_generation, topk=10000):
     """
-    Compute ranking metrics for a single example.
-    Returns: MRR, P@X, dict of results, optionally prints top-k.
+    Get ranking metrics for QA evaluation
     """
+    msg = ""
+    sample_MRR = 0.0
+    sample_P = 0.0
     experiment_result = {}
+
+    # For QA, we use the generated answers directly
+    if isinstance(log_probs, dict) and 'generated_answers' in log_probs:
+        generated_answers = log_probs['generated_answers']
+        gold_answers = log_probs['gold_answers']
+        
+        # Calculate exact match and F1
+        exact_match = 0.0
+        f1_score = 0.0
+        
+        for pred, gold in zip(generated_answers, gold_answers):
+            if pred.strip().lower() == gold.strip().lower():
+                exact_match += 1.0
+            f1_score += calculate_f1(pred, gold)
+        
+        exact_match /= len(generated_answers)
+        f1_score /= len(generated_answers)
+        
+        experiment_result = {
+            "exact_match": exact_match,
+            "f1_score": f1_score
+        }
+        
+        msg = f"Exact Match: {exact_match:.4f}, F1 Score: {f1_score:.4f}"
+        return sample_MRR, sample_P, experiment_result, msg
+
+    # Original ranking logic for compatibility
+    filtered_log_probs = log_probs[masked_indices]
+    filtered_log_probs = filtered_log_probs - filtered_log_probs.max()
+    probs = torch.exp(filtered_log_probs)
+    probs = probs / probs.sum()
 
     # extract top-k candidates
     sel, index_max_probs, value_max_probs = __max_probs_values_indices(
@@ -142,6 +175,25 @@ def get_ranking(log_probs, masked_indices, vocab, label_index=None,
     experiment_result["PERPLEXITY"] = PERPLEXITY
 
     return MRR, P_AT_X, experiment_result, return_msg
+
+
+def calculate_f1(prediction, ground_truth):
+    """Calculate F1 score between prediction and ground truth"""
+    prediction_tokens = prediction.lower().split()
+    ground_truth_tokens = ground_truth.lower().split()
+    
+    # Calculate intersection
+    common = Counter(prediction_tokens) & Counter(ground_truth_tokens)
+    num_same = sum(common.values())
+    
+    if num_same == 0:
+        return 0
+    
+    precision = 1.0 * num_same / len(prediction_tokens)
+    recall = 1.0 * num_same / len(ground_truth_tokens)
+    f1 = (2 * precision * recall) / (precision + recall)
+    
+    return f1
 
 
 def __overlap_negation(index_max_probs_negated, index_max_probs):

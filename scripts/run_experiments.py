@@ -61,6 +61,14 @@ LMs = [
         "label": "gptj-6B",
         "models_names": ["gptj"],
         "gptj_model_name": "EleutherAI/gpt-j-6B",
+        "batch_size": 7,
+        "max_sentence_length": 1024,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "num_return_sequences": 1,
+        "max_new_tokens": 50,
+        "do_sample": True,
+        "evaluation_metric": "exact_match",
     }
 ]
 
@@ -70,42 +78,53 @@ def run_experiments(
     data_path_pre,
     data_path_post,
     input_param={
-        "lm": "bert",
-        "label": "bert_large",
-        "models_names": ["bert"],
-        "bert_model_name": "bert-large-cased",
-        "bert_model_dir": "pre-trained_language_models/bert/cased_L-24_H-1024_A-16",
+        "lm": "gptj",
+        "label": "gptj-6B",
+        "models_names": ["gptj"],
+        "gptj_model_name": "EleutherAI/gpt-j-6B",
+        "batch_size": 7,
+        "max_sentence_length": 1024,
+        "temperature": 0.3,
+        "top_p": 0.9,
+        "num_return_sequences": 1,
+        "max_new_tokens": 50,
+        "do_sample": True,
+        "evaluation_metric": "exact_match",
     },
     use_negated_probes=False,
 ):
     model = None
     pp = pprint.PrettyPrinter(width=41, compact=True)
 
-    all_Precision1 = []
-    type_Precision1 = defaultdict(list)
+    all_scores = []
+    type_scores = defaultdict(list)
     type_count = defaultdict(list)
 
     results_file = open("last_results.csv", "w+")
+    results_file.write("relation,exact_match,f1_score\n")
 
     for relation in relations:
         pp.pprint(relation)
         PARAMETERS = {
-            "dataset_filename": "{}{}{}".format(
-                data_path_pre, relation["relation"], data_path_post
-            ),
+            "dataset_filename": os.path.join(data_path_pre, data_path_post),
             "common_vocab_filename": "pre-trained_language_models/common_vocab_cased.txt",
-            "template": "",
-            "bert_vocab_name": "vocab.txt",
-            "batch_size": 128,
+            "template": relation.get("template", "Context: [X]\nQuestion: [Y]\nAnswer:"),
+            "batch_size": input_param.get("batch_size", 7),
             "logdir": "output",
             "full_logdir": "output/results/{}/{}".format(
                 input_param["label"], relation["relation"]
             ),
             "lowercase": False,
-            "max_sentence_length": 256,
+            "max_sentence_length": input_param.get("max_sentence_length", 1024),
             "threads": -1,
             "interactive": False,
             "use_negated_probes": use_negated_probes,
+            "temperature": input_param.get("temperature", 0.3),
+            "top_p": input_param.get("top_p", 0.9),
+            "num_return_sequences": input_param.get("num_return_sequences", 1),
+            "max_new_tokens": input_param.get("max_new_tokens", 50),
+            "do_sample": input_param.get("do_sample", True),
+            "evaluation_metric": input_param.get("evaluation_metric", "exact_match"),
         }
 
         if "template" in relation:
@@ -130,26 +149,49 @@ def run_experiments(
             [model_type_name] = args.models_names
             model = build_model_by_name(model_type_name, args)
 
-        Precision1 = run_evaluation(args, shuffle_data=False, model=model)
-        print("P@1 : {}".format(Precision1), flush=True)
-        all_Precision1.append(Precision1)
+        scores = run_evaluation(args, shuffle_data=False, model=model)
+        print("Scores: {}".format(scores), flush=True)
+        all_scores.append(scores)
 
-        results_file.write(
-            "{},{}\n".format(relation["relation"], round(Precision1 * 100, 2))
-        )
-        results_file.flush()
+        # Write results to file
+        with open("last_results.csv", "a") as f:
+            if isinstance(scores, dict):
+                # Handle dictionary format with exact_match and f1_score
+                f.write("{},{},{}\n".format(
+                    relation["relation"], 
+                    scores.get("exact_match", 0.0), 
+                    scores.get("f1_score", 0.0)
+                ))
+            else:
+                # Handle float format (MRR score)
+                f.write("{},{},{}\n".format(
+                    relation["relation"],
+                    scores,  # MRR score
+                    0.0     # Default F1 score
+                ))
 
         if "type" in relation:
-            type_Precision1[relation["type"]].append(Precision1)
+            if isinstance(scores, dict):
+                type_scores[relation["type"]].append(scores.get("exact_match", 0.0))
+            else:
+                type_scores[relation["type"]].append(scores)
             data = load_file(PARAMETERS["dataset_filename"])
             type_count[relation["type"]].append(len(data))
 
-    mean_p1 = statistics.mean(all_Precision1)
-    print("@@@ {} - mean P@1: {}".format(input_param["label"], mean_p1))
+    # Calculate mean scores
+    if all_scores and isinstance(all_scores[0], dict):
+        # Calculate means for each metric
+        mean_scores = {
+            "exact_match": statistics.mean([s.get("exact_match", 0.0) for s in all_scores]),
+            "f1_score": statistics.mean([s.get("f1_score", 0.0) for s in all_scores])
+        }
+    else:
+        mean_scores = statistics.mean(all_scores)
+    
+    print("@@@ {} - mean scores: {}".format(input_param["label"], mean_scores))
     results_file.close()
 
-    for t, l in type_Precision1.items():
-
+    for t, l in type_scores.items():
         print(
             "@@@ ",
             input_param["label"],
@@ -160,7 +202,7 @@ def run_experiments(
             flush=True,
         )
 
-    return mean_p1, all_Precision1
+    return mean_scores, all_scores
 
 
 def get_TREx_parameters(data_path_pre="data/"):
@@ -201,9 +243,13 @@ def get_ConceptNet_parameters(data_path_pre="data/"):
 
 
 def get_Squad_parameters(data_path_pre="data/"):
-    relations = [{"relation": "test"}]
+    relations = [{
+        "relation": "squad",
+        "template": "Context: [X]\nQuestion: [Y]\nAnswer:",
+        "type": "qa"
+    }]
     data_path_pre += "Squad/"
-    data_path_post = ".jsonl"
+    data_path_post = "test.jsonl"
     return relations, data_path_pre, data_path_post
 
 
